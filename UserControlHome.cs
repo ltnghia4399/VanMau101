@@ -29,8 +29,6 @@ namespace VanMau101
             InitializeComponent();
         }
 
-        int numberBtn = 40;
-
         private void UserControlHome_Load(object sender, EventArgs e)
         {
             try
@@ -54,7 +52,11 @@ namespace VanMau101
 
         async void GetAllDocumentsFromFireBase()
         {
+            //Console.WriteLine("Bat dau fetch du lieu");
+            lbConnectResult.Text = string.Format("Status: {0}", "Fetching Data");
             FirebaseResponse response = await client.GetTaskAsync(@"Documents");
+            //Console.WriteLine("Hoan thanh fetch du lieu");
+            lbConnectResult.Text = string.Format("Status: {0}", "Data Loaded");
             Dictionary<string, Document> doc = JsonConvert.DeserializeObject<Dictionary<string, Document>>(response.Body.ToString());
 
             //PopulateResult(doc);
@@ -96,8 +98,8 @@ namespace VanMau101
 
         void GetDocumentAtTheButton(string key)
         {
-            var result = client.Get("Documents/" + key);
-            Document doc = result.ResultAs<Document>();
+            FirebaseResponse response = client.Get("Documents/" + key);
+            Document doc = response.ResultAs<Document>();
             gbPreview.Text = string.Format("Preview {0}", doc.Name);
             lbPreview.Text = doc.Content;
             rtxtFullView.Text = doc.Content;
@@ -118,9 +120,16 @@ namespace VanMau101
             
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            //GetAllResult();
+            foreach (Control c in flpnResult.Controls)
+            {
+                if (!c.Text.ToLower().Contains(txtSearch.Text.ToLower()))
+                {
+                    flpnResult.Controls.Remove(c);
+                }
+            }
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)

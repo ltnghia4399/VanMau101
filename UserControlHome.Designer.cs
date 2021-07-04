@@ -37,7 +37,7 @@ namespace VanMau101
             this.pnRefresh = new System.Windows.Forms.Panel();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.gbSearch = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtSearch = new System.Windows.Forms.TextBox();
             this.pnBody = new System.Windows.Forms.Panel();
             this.pnFullView = new System.Windows.Forms.Panel();
             this.pnCopyBtn = new System.Windows.Forms.Panel();
@@ -127,7 +127,7 @@ namespace VanMau101
             // 
             // gbSearch
             // 
-            this.gbSearch.Controls.Add(this.textBox1);
+            this.gbSearch.Controls.Add(this.txtSearch);
             this.gbSearch.Dock = System.Windows.Forms.DockStyle.Top;
             this.gbSearch.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbSearch.Location = new System.Drawing.Point(0, 0);
@@ -137,13 +137,13 @@ namespace VanMau101
             this.gbSearch.TabStop = false;
             this.gbSearch.Text = " Search";
             // 
-            // textBox1
+            // txtSearch
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 19);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(203, 25);
-            this.textBox1.TabIndex = 0;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.txtSearch.Location = new System.Drawing.Point(12, 19);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(203, 25);
+            this.txtSearch.TabIndex = 0;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // pnBody
             // 
@@ -274,7 +274,7 @@ namespace VanMau101
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.FlowLayoutPanel flpnResult;
         private System.Windows.Forms.GroupBox gbSearch;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Panel pnBody;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.GroupBox gbPreview;

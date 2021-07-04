@@ -65,11 +65,18 @@ namespace VanMau101
                     Name = txtInsertName.Text.Trim(),
                     Content = rtxtContent.Text
                 };
-
+                btnUpload.Enabled = false;
+                btnUpload.Text = string.Format("Status: {0}", "Uploading Content");
                 SetResponse response = await client.SetTaskAsync("Documents/" + uniqueID, newDoc);
+                btnUpload.Text = string.Format("Status: {0}", "Content Uploaded");
                 Document result = response.ResultAs<Document>();
-                MessageBox.Show(string.Format("Document is uploaded\nID: {0}\nName: {1}", uniqueID, txtInsertName.Text),"Information",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                DialogResult dr = MessageBox.Show(string.Format("Document is uploaded\nID: {0}\nName: {1}", uniqueID, txtInsertName.Text),"Information",MessageBoxButtons.OK,MessageBoxIcon.Information);
 
+                if(dr == DialogResult.OK)
+                {
+                    btnUpload.Text = string.Format("Upload");
+                    btnUpload.Enabled = true;
+                }
             }
             catch (Exception ex)
             {
