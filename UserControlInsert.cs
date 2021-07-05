@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using FireSharp.Config;
 using FireSharp.Response;
 using FireSharp.Interfaces;
-
+using System.Text.RegularExpressions;
 
 namespace VanMau101
 {
@@ -57,7 +57,7 @@ namespace VanMau101
         {
             try
             {
-                uniqueID = GenerateID("DOC");
+                uniqueID = GenerateID();
 
                 var newDoc = new Document()
                 {
@@ -76,6 +76,10 @@ namespace VanMau101
                 {
                     btnUpload.Text = string.Format("Upload");
                     btnUpload.Enabled = true;
+                    txtInsertName.Text = string.Empty;
+                    gbInsertPreview.Text = "Content Name";
+
+                    rtxtContent.Text = string.Empty;
                 }
             }
             catch (Exception ex)
@@ -89,16 +93,27 @@ namespace VanMau101
 
         string uniqueID;
 
-        private string GenerateID(string key)
+        private string GenerateID()
         {
             try
             {
-                string d = DateTime.Now.ToString("ddMMyyyy");
-                string t = DateTime.Now.ToString("h:mm-tt");
+                //string d = DateTime.Now.ToString("ddMMyyyy");
+                //string t = DateTime.Now.ToString("h:mm-tt");
 
-                key = string.Format("{0}-{1}-{2}", key, d, t);
+                //key = string.Format("{0}-{1}-{2}", key, d, t);
 
-                return key;
+                //string subname = name.Substring(0, name.IndexOf(" "));
+                //string trimName = Regex.Replace(name, @"s", "");
+
+                string name = txtInsertName.Text.Trim();
+
+                Regex regex = new Regex("\\p{IsCombiningDiacriticalMarks}+");
+                string temp = name.Normalize(NormalizationForm.FormD);
+
+                string removeAccented = regex.Replace(temp, String.Empty).Replace('\u0111', 'd').Replace('\u0110', 'D');
+
+                return Regex.Replace(removeAccented, @"\s", "");
+
             }
             catch (Exception)
             {

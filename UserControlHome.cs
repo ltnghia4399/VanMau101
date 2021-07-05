@@ -52,35 +52,68 @@ namespace VanMau101
 
         async void GetAllDocumentsFromFireBase()
         {
-            //Console.WriteLine("Bat dau fetch du lieu");
-            lbConnectResult.Text = string.Format("Status: {0}", "Fetching Data");
-            FirebaseResponse response = await client.GetTaskAsync(@"Documents");
-            //Console.WriteLine("Hoan thanh fetch du lieu");
-            lbConnectResult.Text = string.Format("Status: {0}", "Data Loaded");
-            Dictionary<string, Document> doc = JsonConvert.DeserializeObject<Dictionary<string, Document>>(response.Body.ToString());
+            try
+            {
+                //Console.WriteLine("Bat dau fetch du lieu");
+                lbConnectResult.Text = string.Format("Status: {0}", "Fetching Data");
+                FirebaseResponse response = await client.GetTaskAsync(@"Documents");
+                //Console.WriteLine("Hoan thanh fetch du lieu");
+                lbConnectResult.Text = string.Format("Status: {0}", "Data Loaded");
+                Dictionary<string, Document> doc = JsonConvert.DeserializeObject<Dictionary<string, Document>>(response.Body.ToString());
 
-            //PopulateResult(doc);
-            PopulateResult(doc);
+                //PopulateResult(doc);
+                PopulateResult(doc);
+            }
+            catch (Exception)
+            {
+                lbConnectResult.Text = string.Format("Status: {0}", "Couldn't fetching data. Please check data on the database");
+                throw;
+            }
+            
         }
 
         void PopulateResult(Dictionary<string, Document> record)
         {
             flpnResult.Controls.Clear();
 
-            foreach (var item in record)
+            try
             {
-                Button newBtn = new Button();
-                newBtn.Name = string.Format("{0}", item.Value.Id.ToString());
-                newBtn.Text = string.Format("{0}", item.Value.Name.ToString());
-                newBtn.Size = new Size(185, 28);
-                newBtn.TextAlign = ContentAlignment.MiddleLeft;
-                newBtn.AutoEllipsis = true;
+                if(record == null)
+                {
+                    lbConnectResult.Text = string.Format("Status: {0}", "Couldn't fetching data. Please check data on the database");
+                    return;
+                }
 
-                newBtn.Click += new System.EventHandler(this.ResultClicked);
-                newBtn.MouseHover += new System.EventHandler(this.ResultHover);
+                foreach (var item in record)
+                {
+                    Button newBtn = new Button();
+                    newBtn.Name = string.Format("{0}", item.Value.Id.ToString());
+                    newBtn.Text = string.Format("{0}", item.Value.Name.ToString());
+                    newBtn.Size = new Size(185, 28);
+                    newBtn.TextAlign = ContentAlignment.MiddleLeft;
+                    newBtn.AutoEllipsis = true;
 
-                flpnResult.Controls.Add(newBtn);
+                    newBtn.Click += new System.EventHandler(this.ResultClicked);
+                    newBtn.MouseHover += new System.EventHandler(this.ResultHover);
+
+                    flpnResult.Controls.Add(newBtn);
+                }
             }
+            catch (Exception)
+            {
+                //lbConnectResult.Text = string.Format("Status: {0}", "Coulsdn't fetching data. Please check data on the database");
+                throw;
+            }
+
+            
+
+            //foreach (Button b in flpnResult.Controls)
+            //{
+            //    string name = b.Name;
+            //    string subname = name.Substring(name.IndexOf("0") + 1);
+            //    int i = Convert.ToInt32(subname);
+            //    flpnResult.Controls.SetChildIndex(b, i);
+            //}
         }
 
         void ResultHover(object sender, EventArgs e)
