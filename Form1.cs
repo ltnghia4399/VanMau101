@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.VisualBasic;
 
 namespace VanMau101
 {
@@ -34,13 +35,52 @@ namespace VanMau101
             userControlHome1.BringToFront();
         }
 
-        private void insertToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            userControlHome1.Hide();
+        bool accessGranted = false;
 
-            userControlInsert1.Show();
-            userControlInsert1.BringToFront();
+        private void editToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (accessGranted)
+            {
+                return;
+            }
+
+            string insertKey = Interaction.InputBox("Enter the insert key: ", "Insert key require",string.Empty,500,300);
+
+            if(insertKey == "cu29")
+            {
+                accessGranted = true;
+
+                MessageBox.Show("Access granted\nNow you can edit data to the database", "Access granted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Invalid insert key\nContact to the admin for the insert key","Invalid insert key",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
+
+
         }
 
+        private void insertToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (accessGranted)
+            {
+                userControlHome1.Hide();
+
+                userControlInsert1.Show();
+                userControlInsert1.BringToFront();
+
+                return;
+            }
+        }
+
+        private void updateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Working In Progress\nComeback later for this function", "Not working function", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Working In Progress\nComeback later for this function", "Not working function", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 }

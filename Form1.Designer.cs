@@ -32,7 +32,10 @@ namespace VanMau101
             this.components = new System.ComponentModel.Container();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.insertToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.updateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.userControlHome1 = new VanMau101.UserControlHome();
@@ -44,7 +47,7 @@ namespace VanMau101
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.homeToolStripMenuItem,
-            this.insertToolStripMenuItem,
+            this.editToolStripMenuItem,
             this.aboutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -59,12 +62,37 @@ namespace VanMau101
             this.homeToolStripMenuItem.Text = "Home";
             this.homeToolStripMenuItem.Click += new System.EventHandler(this.homeToolStripMenuItem_Click);
             // 
+            // editToolStripMenuItem
+            // 
+            this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.insertToolStripMenuItem,
+            this.updateToolStripMenuItem,
+            this.deleteToolStripMenuItem});
+            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
+            this.editToolStripMenuItem.Text = "Edit";
+            this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
+            // 
             // insertToolStripMenuItem
             // 
             this.insertToolStripMenuItem.Name = "insertToolStripMenuItem";
-            this.insertToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
+            this.insertToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.insertToolStripMenuItem.Text = "Insert";
             this.insertToolStripMenuItem.Click += new System.EventHandler(this.insertToolStripMenuItem_Click);
+            // 
+            // updateToolStripMenuItem
+            // 
+            this.updateToolStripMenuItem.Name = "updateToolStripMenuItem";
+            this.updateToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.updateToolStripMenuItem.Text = "Update";
+            this.updateToolStripMenuItem.Click += new System.EventHandler(this.updateToolStripMenuItem_Click);
+            // 
+            // deleteToolStripMenuItem
+            // 
+            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.deleteToolStripMenuItem.Text = "Delete";
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem
             // 
@@ -117,11 +145,14 @@ namespace VanMau101
 
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem homeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem insertToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private UserControlInsert userControlInsert1;
         private UserControlHome userControlHome1;
+        private System.Windows.Forms.ToolStripMenuItem insertToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem updateToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
     }
 }
 
