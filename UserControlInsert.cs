@@ -16,14 +16,7 @@ namespace VanMau101
 {
     public partial class UserControlInsert : UserControl
     {
-        IFirebaseConfig config = new FirebaseConfig
-        {
-            AuthSecret = "Wqsj5PvQK4xFZMnofSDiPm5QxQF4iSHhSVjZk3QN",
-            BasePath = "https://vanmau101-default-rtdb.asia-southeast1.firebasedatabase.app/"
-        };
-
         IFirebaseClient client;
-
 
         public UserControlInsert()
         {
@@ -34,7 +27,7 @@ namespace VanMau101
         {
             try
             {
-                client = new FireSharp.FirebaseClient(config);
+                client = new FireSharp.FirebaseClient(frmHome.Config);
             }
             catch (Exception ex)
             {
@@ -97,14 +90,6 @@ namespace VanMau101
         {
             try
             {
-                //string d = DateTime.Now.ToString("ddMMyyyy");
-                //string t = DateTime.Now.ToString("h:mm-tt");
-
-                //key = string.Format("{0}-{1}-{2}", key, d, t);
-
-                //string subname = name.Substring(0, name.IndexOf(" "));
-                //string trimName = Regex.Replace(name, @"s", "");
-
                 string name = txtInsertName.Text.Trim();
 
                 Regex regex = new Regex("\\p{IsCombiningDiacriticalMarks}+");

@@ -32,7 +32,7 @@ namespace VanMau101
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserControlHome));
             this.panel1 = new System.Windows.Forms.Panel();
             this.pnResult = new System.Windows.Forms.Panel();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gbResult = new System.Windows.Forms.GroupBox();
             this.flpnResult = new System.Windows.Forms.FlowLayoutPanel();
             this.pnRefresh = new System.Windows.Forms.Panel();
             this.btnRefresh = new System.Windows.Forms.Button();
@@ -49,7 +49,7 @@ namespace VanMau101
             this.lbConnectResult = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.pnResult.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.gbResult.SuspendLayout();
             this.pnRefresh.SuspendLayout();
             this.gbSearch.SuspendLayout();
             this.pnBody.SuspendLayout();
@@ -72,24 +72,24 @@ namespace VanMau101
             // 
             // pnResult
             // 
-            this.pnResult.Controls.Add(this.groupBox1);
+            this.pnResult.Controls.Add(this.gbResult);
             this.pnResult.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnResult.Location = new System.Drawing.Point(0, 80);
             this.pnResult.Name = "pnResult";
             this.pnResult.Size = new System.Drawing.Size(221, 409);
             this.pnResult.TabIndex = 3;
             // 
-            // groupBox1
+            // gbResult
             // 
-            this.groupBox1.Controls.Add(this.flpnResult);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(0, 0);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(221, 409);
-            this.groupBox1.TabIndex = 1;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = " Result";
+            this.gbResult.Controls.Add(this.flpnResult);
+            this.gbResult.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gbResult.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbResult.Location = new System.Drawing.Point(0, 0);
+            this.gbResult.Name = "gbResult";
+            this.gbResult.Size = new System.Drawing.Size(221, 409);
+            this.gbResult.TabIndex = 1;
+            this.gbResult.TabStop = false;
+            this.gbResult.Text = " Result";
             // 
             // flpnResult
             // 
@@ -115,6 +115,7 @@ namespace VanMau101
             // 
             // btnRefresh
             // 
+            this.btnRefresh.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRefresh.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnRefresh.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRefresh.Location = new System.Drawing.Point(10, 0);
@@ -180,6 +181,8 @@ namespace VanMau101
             // btnCopy
             // 
             this.btnCopy.AutoSize = true;
+            this.btnCopy.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnCopy.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCopy.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnCopy.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCopy.Location = new System.Drawing.Point(0, 10);
@@ -254,7 +257,7 @@ namespace VanMau101
             this.Load += new System.EventHandler(this.UserControlHome_Load);
             this.panel1.ResumeLayout(false);
             this.pnResult.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
+            this.gbResult.ResumeLayout(false);
             this.pnRefresh.ResumeLayout(false);
             this.gbSearch.ResumeLayout(false);
             this.gbSearch.PerformLayout();
@@ -271,7 +274,7 @@ namespace VanMau101
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox gbResult;
         private System.Windows.Forms.FlowLayoutPanel flpnResult;
         private System.Windows.Forms.GroupBox gbSearch;
         private System.Windows.Forms.TextBox txtSearch;

@@ -8,19 +8,59 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.VisualBasic;
+using FireSharp.Config;
+using System.IO;
 
 namespace VanMau101
 {
     public partial class frmHome : Form
     {
+        static IFirebaseConfig config = new FirebaseConfig
+        {
+            BasePath = "https://vanmau101-default-rtdb.asia-southeast1.firebasedatabase.app/"
+        };
+        public static IFirebaseConfig Config { get => config; private set => config = value; }
+
+        string GetAPIToken()
+        {
+            
+            string path = @"E:\Users\boyng\source\repos\APIToken.txt";
+
+            StreamReader streamReader = new StreamReader(path);
+
+            string token = streamReader.ReadToEnd();
+
+            streamReader.Close();
+
+            return token;
+        }
+
+        async Task<string> TaskGetAPI()
+        {
+            Task<string> task = new Task<string>(() => GetAPIToken());
+
+            task.Start();
+
+            var token = await task;
+
+            //Console.WriteLine("task hoan thanh");
+
+            return token;
+        }
+
         public frmHome()
         {
             InitializeComponent();
         }
 
-        private void frmHome_Load(object sender, EventArgs e)
+        private async void frmHome_Load(object sender, EventArgs e)
         {
-            
+            Task<string> taskGetAPI = TaskGetAPI();
+
+            var token = await taskGetAPI;
+
+            config.AuthSecret = token;
+
             userControlHome1.Show();
             userControlHome1.BringToFront();
 
@@ -36,6 +76,7 @@ namespace VanMau101
         }
 
         bool accessGranted = false;
+
 
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -75,12 +116,26 @@ namespace VanMau101
 
         private void updateToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Working In Progress\nComeback later for this function", "Not working function", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //MessageBox.Show("Working In Progress\nComeback later for this function", "Not working function", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (accessGranted)
+            {
+                userControlUpdate1.BringToFront();
+            }
+            
         }
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Working In Progress\nComeback later for this function", "Not working function", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //MessageBox.Show("Working In Progress\nComeback later for this function", "Not working function", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (accessGranted)
+            {
+                userControlDelete1.BringToFront();
+            }
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            userControlAbout1.BringToFront();
         }
     }
 }

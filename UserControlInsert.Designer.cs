@@ -70,6 +70,7 @@ namespace VanMau101
             // lbInsertPreviewContent
             // 
             this.lbInsertPreviewContent.AutoEllipsis = true;
+            this.lbInsertPreviewContent.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbInsertPreviewContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbInsertPreviewContent.Location = new System.Drawing.Point(3, 18);
             this.lbInsertPreviewContent.Name = "lbInsertPreviewContent";

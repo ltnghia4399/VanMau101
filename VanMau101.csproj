@@ -68,6 +68,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserControlAbout.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlAbout.Designer.cs">
+      <DependentUpon>UserControlAbout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlDelete.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlDelete.Designer.cs">
+      <DependentUpon>UserControlDelete.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControlHome.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -80,6 +92,12 @@
     <Compile Include="UserControlInsert.Designer.cs">
       <DependentUpon>UserControlInsert.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControlUpdate.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlUpdate.Designer.cs">
+      <DependentUpon>UserControlUpdate.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -91,7 +109,14 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UserControlAbout.resx">
+      <DependentUpon>UserControlAbout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlDelete.resx">
+      <DependentUpon>UserControlDelete.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControlHome.resx">
       <DependentUpon>UserControlHome.cs</DependentUpon>
     </EmbeddedResource>
@@ -111,6 +136,36 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icon\icons8_insert_page_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icon\icons8_update_file_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icon\icons8_remove_document_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icon\icons8_test_account_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icon\test_account_200px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icon\github_200px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icon\github_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icon\facebook_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icon\gmail_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icon\youtube_play_button_32px.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
