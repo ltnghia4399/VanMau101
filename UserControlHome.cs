@@ -49,6 +49,7 @@ namespace VanMau101
         {
             try
             {
+                txtSearch.Text = string.Empty;
                 lbConnectResult.Text = string.Format("Status: {0}", "Fetching Data");
                 FirebaseResponse response = await client.GetTaskAsync(@"Documents");
                 lbConnectResult.Text = string.Format("Status: {0}", "Data Loaded");
@@ -152,6 +153,16 @@ namespace VanMau101
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            GetAllDocumentsFromFireBase();
+        }
+
+        private void refreshToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GetAllDocumentsFromFireBase();
+        }
+
+        private void UserControlHome_Enter(object sender, EventArgs e)
         {
             GetAllDocumentsFromFireBase();
         }

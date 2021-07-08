@@ -16,7 +16,8 @@ namespace VanMau101
     public partial class UserControlDelete : UserControl
     {
         IFirebaseClient client;
-        string nameTemp = string.Empty;
+        string tempID = string.Empty;
+        string tempName = string.Empty;
 
         public UserControlDelete()
         {
@@ -45,6 +46,7 @@ namespace VanMau101
         {
             try
             {
+                txtSearch.Text = string.Empty;
                 gbDocuments.Text = string.Format("Status: {0}", "Fetching Data");
                 FirebaseResponse response = await client.GetTaskAsync(@"Documents");
                 gbDocuments.Text = string.Format("Status: {0}", "Data Loaded");
@@ -103,8 +105,9 @@ namespace VanMau101
         {
             Button resultBtn = (Button)sender;
 
-            nameTemp = resultBtn.Name;
-            
+            tempID = resultBtn.Name;
+            tempName = resultBtn.Text;
+
             GetDocumentAtTheButton(resultBtn.Name);
         }
 
@@ -138,13 +141,13 @@ namespace VanMau101
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if(nameTemp == string.Empty)
+            if(tempID == string.Empty || tempName == string.Empty)
             {
                 MessageBox.Show("Select document you want to delete","Information",MessageBoxButtons.OK,MessageBoxIcon.Warning);
                 return;
             }
             
-            DialogResult dialogResult = MessageBox.Show(string.Format("Are you really want to delete {0} ?", nameTemp), "Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            DialogResult dialogResult = MessageBox.Show(string.Format("Are you really want to delete {0} ?", tempName), "Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
 
             if (dialogResult == DialogResult.Cancel)
             {
@@ -159,20 +162,31 @@ namespace VanMau101
         async void DeleteDocumentFromFireBase()
         {
             btnDelete.Enabled = false;
-            btnDelete.Text = string.Format("Preparing to delete {0}", nameTemp);
-            FirebaseResponse response = await client.DeleteTaskAsync("Documents/" + nameTemp);
-            DialogResult dialogResult = MessageBox.Show(string.Format("Delete successful {0} ", nameTemp), "Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            btnDelete.Text = string.Format("Delete successful {0}", nameTemp);
+            btnDelete.Text = string.Format("Preparing to delete {0}", tempID);
+            FirebaseResponse response = await client.DeleteTaskAsync("Documents/" + tempID);
+            DialogResult dialogResult = MessageBox.Show(string.Format("Delete successful {0} ", tempName), "Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            btnDelete.Text = string.Format("Delete successful {0}", tempName);
 
             if (dialogResult == DialogResult.OK)
             {
                 GetAllDocumentsFromFireBase();
                 gbPreview.Text = "Preview";
                 lbPreview.Text = "";
-                nameTemp = string.Empty;
+                tempID = string.Empty;
+                tempName = string.Empty;
                 btnDelete.Enabled = true;
                 btnDelete.Text = "Delete";
             }
+        }
+
+        private void refreshToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GetAllDocumentsFromFireBase();
+        }
+
+        private void UserControlDelete_Enter(object sender, EventArgs e)
+        {
+            GetAllDocumentsFromFireBase();
         }
     }
 }

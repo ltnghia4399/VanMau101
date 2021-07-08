@@ -29,23 +29,28 @@ namespace VanMau101
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserControlDelete));
             this.pnTop = new System.Windows.Forms.Panel();
             this.gbPreview = new System.Windows.Forms.GroupBox();
             this.lbPreview = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.gbContent = new System.Windows.Forms.GroupBox();
+            this.btnRefresh = new System.Windows.Forms.Button();
+            this.gbDocuments = new System.Windows.Forms.GroupBox();
+            this.flpnResult = new System.Windows.Forms.FlowLayoutPanel();
             this.btnDelete = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.lbSearch = new System.Windows.Forms.Label();
-            this.gbDocuments = new System.Windows.Forms.GroupBox();
-            this.flpnResult = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnRefresh = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.contextMenuStripRefresh = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnTop.SuspendLayout();
             this.gbPreview.SuspendLayout();
             this.panel1.SuspendLayout();
             this.gbContent.SuspendLayout();
             this.gbDocuments.SuspendLayout();
+            this.contextMenuStripRefresh.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnTop
@@ -106,6 +111,44 @@ namespace VanMau101
             this.gbContent.TabStop = false;
             this.gbContent.Text = " All documents";
             // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRefresh.AutoSize = true;
+            this.btnRefresh.Location = new System.Drawing.Point(703, 43);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(91, 27);
+            this.btnRefresh.TabIndex = 6;
+            this.btnRefresh.Text = "Refresh";
+            this.toolTip1.SetToolTip(this.btnRefresh, "Right click to the result panel to Refresh");
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
+            // gbDocuments
+            // 
+            this.gbDocuments.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbDocuments.ContextMenuStrip = this.contextMenuStripRefresh;
+            this.gbDocuments.Controls.Add(this.flpnResult);
+            this.gbDocuments.Location = new System.Drawing.Point(20, 76);
+            this.gbDocuments.Name = "gbDocuments";
+            this.gbDocuments.Size = new System.Drawing.Size(777, 261);
+            this.gbDocuments.TabIndex = 5;
+            this.gbDocuments.TabStop = false;
+            this.gbDocuments.Text = "Result";
+            // 
+            // flpnResult
+            // 
+            this.flpnResult.AutoScroll = true;
+            this.flpnResult.ContextMenuStrip = this.contextMenuStripRefresh;
+            this.flpnResult.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flpnResult.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flpnResult.Location = new System.Drawing.Point(3, 21);
+            this.flpnResult.Name = "flpnResult";
+            this.flpnResult.Size = new System.Drawing.Size(771, 237);
+            this.flpnResult.TabIndex = 0;
+            // 
             // btnDelete
             // 
             this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -138,40 +181,25 @@ namespace VanMau101
             this.lbSearch.TabIndex = 0;
             this.lbSearch.Text = "Search by name";
             // 
-            // gbDocuments
+            // toolTip1
             // 
-            this.gbDocuments.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.gbDocuments.Controls.Add(this.flpnResult);
-            this.gbDocuments.Location = new System.Drawing.Point(20, 76);
-            this.gbDocuments.Name = "gbDocuments";
-            this.gbDocuments.Size = new System.Drawing.Size(777, 261);
-            this.gbDocuments.TabIndex = 5;
-            this.gbDocuments.TabStop = false;
-            this.gbDocuments.Text = "Result";
+            this.toolTip1.ToolTipTitle = "Refresh Tool Tip";
             // 
-            // flpnResult
+            // contextMenuStripRefresh
             // 
-            this.flpnResult.AutoScroll = true;
-            this.flpnResult.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flpnResult.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flpnResult.Location = new System.Drawing.Point(3, 21);
-            this.flpnResult.Name = "flpnResult";
-            this.flpnResult.Size = new System.Drawing.Size(771, 237);
-            this.flpnResult.TabIndex = 0;
+            this.contextMenuStripRefresh.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.refreshToolStripMenuItem});
+            this.contextMenuStripRefresh.Name = "contextMenuStripRefresh";
+            this.contextMenuStripRefresh.Size = new System.Drawing.Size(120, 26);
             // 
-            // btnRefresh
+            // refreshToolStripMenuItem
             // 
-            this.btnRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRefresh.AutoSize = true;
-            this.btnRefresh.Location = new System.Drawing.Point(703, 43);
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(91, 27);
-            this.btnRefresh.TabIndex = 6;
-            this.btnRefresh.Text = "Refresh";
-            this.btnRefresh.UseVisualStyleBackColor = true;
-            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            this.refreshToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.refreshToolStripMenuItem.Image = global::VanMau101.Properties.Resources.rotate_right_32px;
+            this.refreshToolStripMenuItem.Name = "refreshToolStripMenuItem";
+            this.refreshToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.refreshToolStripMenuItem.Text = "Refresh";
+            this.refreshToolStripMenuItem.Click += new System.EventHandler(this.refreshToolStripMenuItem_Click);
             // 
             // UserControlDelete
             // 
@@ -182,12 +210,14 @@ namespace VanMau101
             this.Name = "UserControlDelete";
             this.Size = new System.Drawing.Size(816, 489);
             this.Load += new System.EventHandler(this.UserControlDelete_Load);
+            this.Enter += new System.EventHandler(this.UserControlDelete_Enter);
             this.pnTop.ResumeLayout(false);
             this.gbPreview.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.gbContent.ResumeLayout(false);
             this.gbContent.PerformLayout();
             this.gbDocuments.ResumeLayout(false);
+            this.contextMenuStripRefresh.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -205,5 +235,8 @@ namespace VanMau101
         private System.Windows.Forms.GroupBox gbDocuments;
         private System.Windows.Forms.FlowLayoutPanel flpnResult;
         private System.Windows.Forms.Button btnRefresh;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStripRefresh;
+        private System.Windows.Forms.ToolStripMenuItem refreshToolStripMenuItem;
     }
 }

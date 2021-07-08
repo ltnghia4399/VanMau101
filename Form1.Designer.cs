@@ -43,7 +43,6 @@ namespace VanMau101
             this.userControlInsert1 = new VanMau101.UserControlInsert();
             this.userControlDelete1 = new VanMau101.UserControlDelete();
             this.userControlUpdate1 = new VanMau101.UserControlUpdate();
-            this.userControlAbout1 = new VanMau101.UserControlAbout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -145,20 +144,11 @@ namespace VanMau101
             this.userControlUpdate1.Size = new System.Drawing.Size(896, 450);
             this.userControlUpdate1.TabIndex = 6;
             // 
-            // userControlAbout1
-            // 
-            this.userControlAbout1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.userControlAbout1.Location = new System.Drawing.Point(0, 24);
-            this.userControlAbout1.Name = "userControlAbout1";
-            this.userControlAbout1.Size = new System.Drawing.Size(896, 450);
-            this.userControlAbout1.TabIndex = 7;
-            // 
             // frmHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(896, 474);
-            this.Controls.Add(this.userControlAbout1);
             this.Controls.Add(this.userControlUpdate1);
             this.Controls.Add(this.userControlDelete1);
             this.Controls.Add(this.userControlHome1);
@@ -191,7 +181,6 @@ namespace VanMau101
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
         private UserControlDelete userControlDelete1;
         private UserControlUpdate userControlUpdate1;
-        private UserControlAbout userControlAbout1;
     }
 }
 

@@ -117,8 +117,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <metadata name="contextMenuStripRefresh.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>207, 17</value>
+  </metadata>
   <data name="lbPreview.Text" xml:space="preserve">
     <value>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vitae tincidunt est, vel tempus elit. Nam et felis at erat bibendum porta porta at tortor. Etiam dapibus sem vel mollis auctor. Pellentesque pretium nisi vitae ex gravida, non egestas nisi faucibus. In malesuada et justo ac euismod. Praesent egestas orci non interdum tincidunt. Fusce eleifend ex sed sem rhoncus, quis hendrerit nisl convallis. Nullam eget varius quam. Aliquam pharetra scelerisque cursus. Sed pellentesque ante ac iaculis pellentesque. Donec in lacus quis velit dapibus efficitur eu eget nibh.
 </value>
   </data>
+  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>207, 17</value>
+  </metadata>
 </root>

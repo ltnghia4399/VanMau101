@@ -30,10 +30,10 @@ namespace VanMau101
         private void InitializeComponent()
         {
             this.pnLeft = new System.Windows.Forms.Panel();
-            this.pnRight = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.pnRight = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -51,21 +51,8 @@ namespace VanMau101
             this.pnLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnLeft.Location = new System.Drawing.Point(0, 0);
             this.pnLeft.Name = "pnLeft";
-            this.pnLeft.Size = new System.Drawing.Size(236, 360);
+            this.pnLeft.Size = new System.Drawing.Size(236, 317);
             this.pnLeft.TabIndex = 0;
-            // 
-            // pnRight
-            // 
-            this.pnRight.Controls.Add(this.label6);
-            this.pnRight.Controls.Add(this.label5);
-            this.pnRight.Controls.Add(this.label4);
-            this.pnRight.Controls.Add(this.label3);
-            this.pnRight.Controls.Add(this.label2);
-            this.pnRight.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnRight.Location = new System.Drawing.Point(236, 0);
-            this.pnRight.Name = "pnRight";
-            this.pnRight.Size = new System.Drawing.Size(390, 360);
-            this.pnRight.TabIndex = 1;
             // 
             // label1
             // 
@@ -77,26 +64,39 @@ namespace VanMau101
             this.label1.TabIndex = 1;
             this.label1.Text = "ltnghia";
             // 
-            // label2
+            // pnRight
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.label2.Location = new System.Drawing.Point(4, 63);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(225, 40);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Lai Trung Nghia";
+            this.pnRight.Controls.Add(this.label6);
+            this.pnRight.Controls.Add(this.label5);
+            this.pnRight.Controls.Add(this.label4);
+            this.pnRight.Controls.Add(this.label3);
+            this.pnRight.Controls.Add(this.label2);
+            this.pnRight.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnRight.Location = new System.Drawing.Point(236, 0);
+            this.pnRight.Name = "pnRight";
+            this.pnRight.Size = new System.Drawing.Size(343, 317);
+            this.pnRight.TabIndex = 1;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(9, 105);
+            this.label3.Location = new System.Drawing.Point(45, 105);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(131, 15);
             this.label3.TabIndex = 2;
             this.label3.Text = "SOFTWARE DEVELOPER";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.CornflowerBlue;
+            this.label2.Location = new System.Drawing.Point(40, 63);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(225, 40);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Lai Trung Nghia";
             // 
             // label6
             // 
@@ -104,7 +104,7 @@ namespace VanMau101
             this.label6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Image = global::VanMau101.Properties.Resources.gmail_32px;
             this.label6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label6.Location = new System.Drawing.Point(8, 233);
+            this.label6.Location = new System.Drawing.Point(44, 233);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(210, 29);
             this.label6.TabIndex = 6;
@@ -118,7 +118,7 @@ namespace VanMau101
             this.label5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Image = global::VanMau101.Properties.Resources.facebook_32px;
             this.label5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label5.Location = new System.Drawing.Point(8, 193);
+            this.label5.Location = new System.Drawing.Point(44, 193);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(228, 29);
             this.label5.TabIndex = 5;
@@ -132,7 +132,7 @@ namespace VanMau101
             this.label4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Image = global::VanMau101.Properties.Resources.github_32px;
             this.label4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label4.Location = new System.Drawing.Point(9, 153);
+            this.label4.Location = new System.Drawing.Point(45, 153);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(213, 29);
             this.label4.TabIndex = 4;
@@ -157,7 +157,7 @@ namespace VanMau101
             this.Controls.Add(this.pnRight);
             this.Controls.Add(this.pnLeft);
             this.Name = "UserControlAbout";
-            this.Size = new System.Drawing.Size(626, 360);
+            this.Size = new System.Drawing.Size(579, 317);
             this.pnLeft.ResumeLayout(false);
             this.pnLeft.PerformLayout();
             this.pnRight.ResumeLayout(false);

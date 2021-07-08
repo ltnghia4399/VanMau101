@@ -29,6 +29,7 @@ namespace VanMau101
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserControlHome));
             this.panel1 = new System.Windows.Forms.Panel();
             this.pnResult = new System.Windows.Forms.Panel();
@@ -47,6 +48,9 @@ namespace VanMau101
             this.gbPreview = new System.Windows.Forms.GroupBox();
             this.lbPreview = new System.Windows.Forms.Label();
             this.lbConnectResult = new System.Windows.Forms.Label();
+            this.contextMenuStripRefresh = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panel1.SuspendLayout();
             this.pnResult.SuspendLayout();
             this.gbResult.SuspendLayout();
@@ -57,6 +61,7 @@ namespace VanMau101
             this.pnCopyBtn.SuspendLayout();
             this.panel2.SuspendLayout();
             this.gbPreview.SuspendLayout();
+            this.contextMenuStripRefresh.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -81,6 +86,7 @@ namespace VanMau101
             // 
             // gbResult
             // 
+            this.gbResult.ContextMenuStrip = this.contextMenuStripRefresh;
             this.gbResult.Controls.Add(this.flpnResult);
             this.gbResult.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gbResult.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -94,6 +100,7 @@ namespace VanMau101
             // flpnResult
             // 
             this.flpnResult.AutoScroll = true;
+            this.flpnResult.ContextMenuStrip = this.contextMenuStripRefresh;
             this.flpnResult.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flpnResult.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flpnResult.Location = new System.Drawing.Point(3, 21);
@@ -123,6 +130,7 @@ namespace VanMau101
             this.btnRefresh.Size = new System.Drawing.Size(206, 30);
             this.btnRefresh.TabIndex = 0;
             this.btnRefresh.Text = "Refresh";
+            this.toolTip1.SetToolTip(this.btnRefresh, "Right click to the result panel to Refresh");
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
@@ -136,7 +144,7 @@ namespace VanMau101
             this.gbSearch.Size = new System.Drawing.Size(221, 50);
             this.gbSearch.TabIndex = 0;
             this.gbSearch.TabStop = false;
-            this.gbSearch.Text = " Search";
+            this.gbSearch.Text = " Search by name";
             // 
             // txtSearch
             // 
@@ -246,6 +254,26 @@ namespace VanMau101
             this.lbConnectResult.Text = "Connection Result : {0}";
             this.lbConnectResult.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
+            // contextMenuStripRefresh
+            // 
+            this.contextMenuStripRefresh.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.refreshToolStripMenuItem});
+            this.contextMenuStripRefresh.Name = "contextMenuStripRefresh";
+            this.contextMenuStripRefresh.Size = new System.Drawing.Size(120, 26);
+            // 
+            // refreshToolStripMenuItem
+            // 
+            this.refreshToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.refreshToolStripMenuItem.Image = global::VanMau101.Properties.Resources.rotate_right_32px;
+            this.refreshToolStripMenuItem.Name = "refreshToolStripMenuItem";
+            this.refreshToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.refreshToolStripMenuItem.Text = "Refresh";
+            this.refreshToolStripMenuItem.Click += new System.EventHandler(this.refreshToolStripMenuItem_Click);
+            // 
+            // toolTip1
+            // 
+            this.toolTip1.ToolTipTitle = "Refresh Tool Tip";
+            // 
             // UserControlHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -255,6 +283,7 @@ namespace VanMau101
             this.Name = "UserControlHome";
             this.Size = new System.Drawing.Size(816, 489);
             this.Load += new System.EventHandler(this.UserControlHome_Load);
+            this.Enter += new System.EventHandler(this.UserControlHome_Enter);
             this.panel1.ResumeLayout(false);
             this.pnResult.ResumeLayout(false);
             this.gbResult.ResumeLayout(false);
@@ -267,6 +296,7 @@ namespace VanMau101
             this.pnCopyBtn.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.gbPreview.ResumeLayout(false);
+            this.contextMenuStripRefresh.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -290,5 +320,8 @@ namespace VanMau101
         private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.Panel pnRefresh;
         private System.Windows.Forms.Panel pnResult;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStripRefresh;
+        private System.Windows.Forms.ToolStripMenuItem refreshToolStripMenuItem;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

@@ -143,6 +143,16 @@ namespace VanMau101.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap rotate_right_32px {
+            get {
+                object obj = ResourceManager.GetObject("rotate_right_32px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap test_account_200px {
             get {
                 object obj = ResourceManager.GetObject("test_account_200px", resourceCulture);

@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Microsoft.VisualBasic;
 using FireSharp.Config;
 using System.IO;
+using System.Reflection;
 
 namespace VanMau101
 {
@@ -23,8 +24,13 @@ namespace VanMau101
 
         string GetAPIToken()
         {
-            
-            string path = @"E:\Users\boyng\source\repos\APIToken.txt";
+            string exeFile = (new System.Uri(Assembly.GetEntryAssembly().CodeBase)).AbsolutePath;
+            string exeDir = Path.GetDirectoryName(exeFile);
+
+            string path = Path.Combine(exeDir, "APIToken.txt");
+
+            //string fullPath = Path.Combine(exeDir, "..\\..\\Images\\Texture.dds");
+            //string path = @"E:\Users\boyng\source\repos\APIToken.txt";
 
             StreamReader streamReader = new StreamReader(path);
 
@@ -135,7 +141,10 @@ namespace VanMau101
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            userControlAbout1.BringToFront();
+            frmAbout frmAbout = new frmAbout();
+
+            frmAbout.ShowDialog();
+
         }
     }
 }
