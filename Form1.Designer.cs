@@ -43,6 +43,7 @@ namespace VanMau101
             this.userControlInsert1 = new VanMau101.UserControlInsert();
             this.userControlDelete1 = new VanMau101.UserControlDelete();
             this.userControlUpdate1 = new VanMau101.UserControlUpdate();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -181,6 +182,7 @@ namespace VanMau101
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
         private UserControlDelete userControlDelete1;
         private UserControlUpdate userControlUpdate1;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }
 

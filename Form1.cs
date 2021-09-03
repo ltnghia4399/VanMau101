@@ -81,7 +81,7 @@ namespace VanMau101
             userControlHome1.BringToFront();
         }
 
-        bool accessGranted = false;
+        public static bool accessGranted = false;
 
 
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
@@ -91,20 +91,25 @@ namespace VanMau101
                 return;
             }
 
-            string insertKey = Interaction.InputBox("Enter the insert key: ", "Insert key require",string.Empty,500,300);
+            //string insertKey = Interaction.InputBox("Enter the insert key: ", "Insert key require",string.Empty,500,300);
 
-            if(insertKey == "cu29")
+            //if(insertKey == "cu29")
+            //{
+            //    accessGranted = true;
+
+            //    MessageBox.Show("Access granted\nNow you can edit data to the database", "Access granted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Invalid insert key\nContact to the admin for the insert key","Invalid insert key",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            //}
+
+            frmAccount frmAccount = new frmAccount();
+
+            if (frmAccount != null)
             {
-                accessGranted = true;
-
-                MessageBox.Show("Access granted\nNow you can edit data to the database", "Access granted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                frmAccount.ShowDialog();
             }
-            else
-            {
-                MessageBox.Show("Invalid insert key\nContact to the admin for the insert key","Invalid insert key",MessageBoxButtons.OK,MessageBoxIcon.Error);
-            }
-
-
         }
 
         private void insertToolStripMenuItem_Click(object sender, EventArgs e)
